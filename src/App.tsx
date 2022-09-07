@@ -1,8 +1,11 @@
+import ProductProvider from "./context/ProductProvider";
+
 function App() {
   return (
-    <div className="App">
-    olá
-    </div>
+    <ProductProvider>
+      <div className="App">
+      </div>
+    </ProductProvider>
   );
 }
 
