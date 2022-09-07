@@ -5,8 +5,10 @@ import ProductContext from './ProductContext';
 
 function ProductProvider({ children }: { children: React.ReactNode }) {
   const [productsArray, setProductsArray] = useState<IProduct[]>([]);
-  const [isEditionMode, setIsEditionMode] = useState<boolean>(false);
+  const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const [editProduct, setEditProduct] = useState<IProduct | null>(null);
+  const [productDetail, setProductDetail] = useState<IProduct | null>(null);
+  const [isCreateMode, setIsCreateMode] = useState<boolean>(false);
 
   const updateProductsArray = async (): Promise<void> => {
     const productsConnection = new ProductConnection()
@@ -16,16 +18,22 @@ function ProductProvider({ children }: { children: React.ReactNode }) {
 
   const value = useMemo(() => ({
     productsArray,
-    setProductsArray,
-    isEditionMode,
-    setIsEditionMode,
+    isEditMode,
     editProduct,
-    setEditProduct,
     updateProductsArray,
+    productDetail,
+    setEditProduct,
+    setProductsArray,
+    setIsEditMode,
+    setProductDetail,
+    isCreateMode,
+    setIsCreateMode,
   }), [
     productsArray,
-    isEditionMode,
+    isEditMode,
     editProduct,
+    productDetail,
+    isCreateMode,
   ]);
 
   useEffect(() => { updateProductsArray(); }, []);
