@@ -16,7 +16,7 @@ export default class ProductConnection implements IProductsConnection {
   }
 
   async search(term: string): Promise<IProduct[]> {
-    const route = this._route + term;
+    const route = `${this._route}search?q=${term}`;
     const { data } = await APIConnection.get(route);
     return data as IProduct[];
   }
