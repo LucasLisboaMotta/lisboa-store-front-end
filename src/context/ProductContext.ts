@@ -8,6 +8,6 @@ interface IProductContext {
   updateProductsArray(): Promise<void>
 }
 
-const ContextProduct = createContext<IProductContext | null>(null);
+const ProductContext = createContext<IProductContext | null>(null);
 
-export default ContextProduct;
+export default ProductContext;

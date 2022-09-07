@@ -1,9 +1,9 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { IProduct } from '../APIConnection/interfaces/IProducts.connection';
 import ProductConnection from '../APIConnection/Products.connection';
-import ContextProduct from './ContextProduct';
+import ProductContext from './ProductContext';
 
-function Provider({ children }: { children: React.ReactNode }) {
+function ProductProvider({ children }: { children: React.ReactNode }) {
   const [productsArray, setProductsArray] = useState<IProduct[]>([]);
   const [isEditionMode, setIsEditionMode] = useState<boolean>(false);
   const [editProduct, setEditProduct] = useState<IProduct | null>(null);
@@ -31,10 +31,10 @@ function Provider({ children }: { children: React.ReactNode }) {
   useEffect(() => { updateProductsArray(); }, []);
 
   return (
-    <ContextProduct.Provider value={value}>
+    <ProductContext.Provider value={value}>
       {children}
-    </ContextProduct.Provider>
+    </ProductContext.Provider>
   );
 }
 
-export default Provider;
+export default ProductProvider;
