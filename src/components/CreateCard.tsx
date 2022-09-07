@@ -54,7 +54,8 @@ function CreateCard() {
   };
 
   const onSaveButtonClick = async () => {
-    await productConnection.post(newProductCreate());
+    const newProduct = await productConnection.post(newProductCreate());
+    setProductDetail(newProduct);
     updateProductsArray();
     onCancelButtonClick();
   }
@@ -64,6 +65,13 @@ function CreateCard() {
     setProductDetail(updateProduct);
     updateProductsArray();
     onCancelButtonClick();
+  }
+
+  const isDisabled = () => {
+    const verifyProduct = productInput.length < 3;
+    const verifyDescription = descriptionInput.length < 3;
+    const verifyValue = valueInput === '0.00';
+    return [verifyProduct, verifyDescription, verifyValue].some((bool) => bool);
   }
 
   return (
@@ -110,6 +118,7 @@ function CreateCard() {
         <button 
           type="button"
           onClick={ isEditMode ? onUpdateButtonClick : onSaveButtonClick }
+          disabled={ isDisabled() }
         >
         { isEditMode ? 'Atualizar' : 'Cadastrar' }
         </button>
