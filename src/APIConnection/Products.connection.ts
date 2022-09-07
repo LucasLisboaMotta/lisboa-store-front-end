@@ -28,25 +28,25 @@ export default class ProductConnection implements IProductsConnection {
   }
 
   async post(product: IProductCreate): Promise<IProduct> {
-    const { data } = await APIConnection.get(this._route, product as AxiosRequestConfig);
+    const { data } = await APIConnection.post(this._route, product as AxiosRequestConfig);
     return data as IProduct;
   }
 
   async put(id: string, product: IProductCreate): Promise<IProduct> {
     const route = this._route + id;
-    const { data } = await APIConnection.get(route, product as AxiosRequestConfig);
+    const { data } = await APIConnection.put(route, product as AxiosRequestConfig);
     return data as IProduct;
   }
 
   async patch(id: string, product: IProductPatch): Promise<IProduct> {
     const route = this._route + id;
-    const { data } = await APIConnection.get(route, product as AxiosRequestConfig);
+    const { data } = await APIConnection.patch(route, product as AxiosRequestConfig);
     return data as IProduct;
   }
 
   async delete(id: string): Promise<void> {
     const route = this._route + id;
-    await APIConnection.get(route);
+    await APIConnection.delete(route);
   }
 
 }
