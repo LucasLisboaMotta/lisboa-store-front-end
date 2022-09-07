@@ -8,6 +8,7 @@ function CreateCard() {
   const {
     isEditMode,
     editProduct,
+    setProductDetail,
     setIsEditMode,
     setIsCreateMode,
     setEditProduct,
@@ -52,21 +53,22 @@ function CreateCard() {
     setEditProduct(null);
   };
 
-  const onSaveButtonClick = () => {
-    productConnection.post(newProductCreate());
+  const onSaveButtonClick = async () => {
+    await productConnection.post(newProductCreate());
     updateProductsArray();
     onCancelButtonClick();
   }
 
-  const onUpdateButtonClick = () => {
-    productConnection.put(String(editProduct?._id), newProductCreate());
+  const onUpdateButtonClick = async () => {
+    const updateProduct = await productConnection.put(String(editProduct?._id), newProductCreate());
+    setProductDetail(updateProduct);
     updateProductsArray();
     onCancelButtonClick();
   }
-  
+
   return (
     <form>
-    
+
       <label htmlFor="product-input">
         Produto
         <input
@@ -86,7 +88,7 @@ function CreateCard() {
           onChange={ onValueInputChange }
         />
       </label>
-      
+ 
       <label htmlFor="description-textarea">
         Descrição
         <textarea
