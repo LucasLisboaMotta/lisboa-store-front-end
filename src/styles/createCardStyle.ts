@@ -55,7 +55,6 @@ const buttonStyle: CSS.Properties = {
   width: '90px',
   height: '30px',
   borderRadius: '5px',
-  // fontFamily: '',
   backgroundColor: '#238E68',
   color: 'white',
   margin: '2px',
@@ -63,7 +62,13 @@ const buttonStyle: CSS.Properties = {
   fontSize: '20px',
 };
 
+const buttonDisabledStyle: CSS.Properties = {
+  ...buttonStyle,
+  backgroundColor: '#003300',
+};
+
 export {
+  buttonDisabledStyle,
   buttonStyle,
   labelTextareaStyle,
   inputStyle,

@@ -3,6 +3,7 @@ import { IProductCreate } from "../APIConnection/interfaces/IProducts.connection
 import ProductConnection from "../APIConnection/Products.connection";
 import ProductContext from "../context/ProductContext";
 import { 
+  buttonDisabledStyle,
   buttonStyle,
   labelTextareaStyle,
   inputStyle,
@@ -136,7 +137,7 @@ function CreateCard() {
 
           <button 
             type="button"
-            style={ buttonStyle }
+            style={ isDisabled() ? buttonDisabledStyle : buttonStyle }
             onClick={ isEditMode ? onUpdateButtonClick : onSaveButtonClick }
             disabled={ isDisabled() }
             >
