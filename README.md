@@ -1,46 +1,30 @@
-# Getting Started with Create React App
+# Bem-vindo a lojinha do lisboa
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto trabalha em conjunto com outro repositório: https://github.com/LucasLisboaMotta/lisboa-store-back-end
 
-## Available Scripts
+A intenção é simular uma página de produtos, podendo visualizar, criar, editar e excluir todos os produtos listados.
 
-In the project directory, you can run:
+Essa foi a minha primeira experiencia utilizando TypeScript no front-end, e pude aprender alguns conceitos novos graças a esse projeto.
 
-### `npm start`
+O projeto esta no ar pela heroku, no seguinte link: https://lisboa-store-front-end.herokuapp.com/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Para iniciar o projeto, primeiro você precisa fazer o clone pelo seguinte comando
+```
+git clone git@github.com:LucasLisboaMotta/lisboa-store-front-end.git
+```
 
-### `npm test`
+em seguida você deve utilizar o seguinte comando para instalar as dependências
+```
+npm install
+```
+Para o projeto funcionar, ele deve ter uma conecção com o back-end. Ele já esta configurado para se ligar ao repositório lisboa-store-back-end que já esta no ar. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Porem, caso queira rodar localmente, basta clonar o seguinte repositório https://github.com/LucasLisboaMotta/lisboa-store-back-end e seguir os passo a passo dele. E após iniciar o back-end, você deve alterar o arquivo  `src/APIConnection/index.ts`  na `linha 4`, alterando a URL da conecção com o backend
+```
+const url = 'https://lisboa-store-back-end.herokuapp.com/'
+```
+Apos terminar as conigurações, voce pode iniciar o projeto com o comando 
+```
+npm start
+```
