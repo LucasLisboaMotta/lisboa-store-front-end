@@ -2,6 +2,16 @@ import React, { useContext, useEffect, useState } from "react";
 import { IProductCreate } from "../APIConnection/interfaces/IProducts.connection";
 import ProductConnection from "../APIConnection/Products.connection";
 import ProductContext from "../context/ProductContext";
+import { 
+  buttonStyle,
+  labelTextareaStyle,
+  inputStyle,
+  labelStyle,
+  divBackGround,
+  formStyle,
+  divFormsStyles,
+  textareaStyles,
+} from "../styles/createCardStyle";
 
 
 function CreateCard() {
@@ -75,56 +85,66 @@ function CreateCard() {
   }
 
   return (
-    <form>
+    <>
+      <div style={divBackGround} />
 
-      <label htmlFor="product-input">
-        Produto
-        <input
-         id="product-input"
-         type="text"
-         value={ productInput }
-         onChange={({ target: { value } }) => setProductInput(value)}
-        />
-      </label>
-    
-      <label htmlFor="value-input">
-        Valor
-        <input
-          id="value-input"
-          type="text"
-          value={ valueInput.replace('.', ',') }
-          onChange={ onValueInputChange }
-        />
-      </label>
- 
-      <label htmlFor="description-textarea">
-        Descrição
-        <textarea
-          id="description-textarea"
-          value={ descriptionInput }
-          onChange={({ target: { value } }) => setDescriptionInput(value)}
-        />
-      </label>
-    
-      <div>
+      <form style={ formStyle }>
+        <div style={ divFormsStyles }>
+          <label htmlFor="product-input" style={ labelStyle }>
+            Produto:
+            {' '}
+            <input
+              id="product-input"
+              type="text"
+              value={ productInput }
+              style={ inputStyle }
+              onChange={({ target: { value } }) => setProductInput(value)}
+            />
+          </label>
+      
+        <label htmlFor="value-input" style={ labelStyle }>
+            Valor:
+            {' '}
+            <input
+              id="value-input"
+              type="text"
+              style={ inputStyle }
+              value={ valueInput.replace('.', ',') }
+              onChange={ onValueInputChange }
+            />
+          </label>
+  
+          <label htmlFor="description-textarea" style={ labelTextareaStyle }>
+            Descrição 
+            <textarea
+              id="description-textarea"
+              value={ descriptionInput }
+              style={ textareaStyles }
+              onChange={({ target: { value } }) => setDescriptionInput(value)}
+              />
+          </label>
+        </div>
 
-        <button 
-          type="button"
-          onClick={ onCancelButtonClick }
-        >
-          Cancelar
-        </button>
+        <div>
+          <button 
+            style={ buttonStyle }
+            type="button"
+            onClick={ onCancelButtonClick }
+            >
+            Cancelar
+          </button>
 
-        <button 
-          type="button"
-          onClick={ isEditMode ? onUpdateButtonClick : onSaveButtonClick }
-          disabled={ isDisabled() }
-        >
-        { isEditMode ? 'Atualizar' : 'Cadastrar' }
-        </button>
-      </div>
-
-    </form>
+          <button 
+            type="button"
+            style={ buttonStyle }
+            onClick={ isEditMode ? onUpdateButtonClick : onSaveButtonClick }
+            disabled={ isDisabled() }
+            >
+          { isEditMode ? 'Atualizar' : 'Cadastrar' }
+          </button>
+        </div>
+      </form>
+   </>
   )
 }
 
