@@ -34,6 +34,8 @@ const textareaStyles: CSS.Properties = {
   border: '2px solid black',
   width: '250px',
   height: '60px',
+  textAlign: 'left',
+  padding: '2px',
 }
 
 const labelStyle: CSS.Properties = {
@@ -45,6 +47,8 @@ const labelStyle: CSS.Properties = {
 const inputStyle: CSS.Properties = {
   borderRadius: '5px',
   fontSize: '18px',
+  textAlign: 'left',
+  paddingLeft: '2px',
 }
 
 const labelTextareaStyle: CSS.Properties = {

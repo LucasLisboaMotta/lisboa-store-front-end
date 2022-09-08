@@ -2,6 +2,13 @@ import { useContext } from 'react';
 import { IProduct } from '../APIConnection/interfaces/IProducts.connection';
 import ProductConnection from '../APIConnection/Products.connection';
 import ProductContext from '../context/ProductContext';
+import { buttonStyle } from "../styles/createCardStyle";
+import {
+  pStyle,
+  divButtonStyle,
+  productDetailStyle,
+  h2Style,
+} from '../styles/productsCardStyle';
 
 function ProductCardDetail() {
   const productConnection = new ProductConnection();
@@ -26,10 +33,11 @@ function ProductCardDetail() {
   };
 
   return (
-    <section>
+    <section style={ productDetailStyle }>
       {productDetail !== null && 
         <>
-          <h2>
+        <div>
+          <h2 style={ h2Style }>
             { productDetail.product }
           </h2>
           <span>
@@ -37,17 +45,21 @@ function ProductCardDetail() {
             {' '}
             { productDetail.value.replace('.', ',') }
           </span>
+        </div>
 
-          <p>
+          <p style={ pStyle }>
             { productDetail.description }
           </p> 
 
-          <button type="button" onClick={ onClickEdit } >
-            Editar
-          </button>
-          <button type="button" onClick={ onClickExclude } >
-            Excluir
-          </button>
+
+          <div style={ divButtonStyle }>
+            <button type="button" onClick={ onClickEdit } style={ buttonStyle } >
+              Editar
+            </button>
+            <button type="button" onClick={ onClickExclude } style={ buttonStyle } >
+              Excluir
+            </button>
+          </div>
         </>
       }
     </section>

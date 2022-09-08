@@ -9,3 +9,14 @@ body {
   background-color:#042312;
   color: rgb(219, 217, 206);
 }
+
+::-webkit-scrollbar {
+  background-color: #32CD99;
+  width: 13px;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #99FF99;
+  border-radius: 5px;
+}

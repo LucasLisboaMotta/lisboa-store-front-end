@@ -4,6 +4,7 @@ import ListProductCard from "./components/ListProductCard";
 import ProductCardDetail from "./components/ProductCardDetail";
 import ProductContext from "./context/ProductContext";
 import { useContext } from "react";
+import { flexDivStyles } from "./styles/productsCardStyle";
 
 function App() {
   const { isEditMode, isCreateMode } = useContext(ProductContext);
@@ -13,8 +14,10 @@ function App() {
       <div className="App">
         {startCreateCard && <CreateCard />}
         <Header />
-        <ListProductCard />
-        <ProductCardDetail />
+        <div style={ flexDivStyles }>
+          <ListProductCard />
+          <ProductCardDetail />
+        </div>
       </div>
   );
 }
