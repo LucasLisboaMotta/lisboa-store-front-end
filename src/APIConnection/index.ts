@@ -1,7 +1,7 @@
 // import 'dotenv/config';
 import axios from 'axios'
 
-const url = 'http://localhost:3001/'
+const url = 'https://lisboa-store-back-end.herokuapp.com/'
 
 const APIConnection = axios.create({ baseURL: url });
 
