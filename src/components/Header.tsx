@@ -12,7 +12,7 @@ import {
   addDivStyle,
   addSpanStyle,
   addButtonStyle,
-} from "../styles/header";
+} from "../styles/headerStyle";
 
 function Header() {
   const productConnection = new ProductConnection();
